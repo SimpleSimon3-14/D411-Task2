@@ -25,7 +25,7 @@ foreach ($FinanceUser in $FinanceADUSers)
   $OfficeNum = $FinanceUser.OfficePhone
   $MobileNum = $FinanceUser.MobilePhone
 
-New-AdUser -GivenName $FName -Surname $LName -SamAccountName $SamName -DisplayName $DName -PostalCode $PostalCode -OfficePhone $OfficeNum  -MobilePhone $MobileNum -Path $newFinanceOU
+New-AdUser -GivenName $FName -Surname $LName -Name $DName -SamAccountName $SamName -DisplayName $DName -PostalCode $PostalCode -OfficePhone $OfficeNum  -MobilePhone $MobileNum -Path $newFinanceOU
 }
 
 #Generate output file: Get-ADUser -Filter * -SearchBase “ou=Finance,dc=consultingfirm,dc=com” -Properties DisplayName,PostalCode,OfficePhone,MobilePhone > .\AdResults.txt
