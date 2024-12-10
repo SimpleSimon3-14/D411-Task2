@@ -3,6 +3,12 @@
 $newFinanceOU = “ou=Finance,dc=consultingfirm,dc=com”
 
 #Check AD for OU named Finance
+if ([adsi]::Exists("LDAP://$newFinanceOU)) {
+  Write-Host -Foreground-Color Red "Finance OU Currently Exists"
+  Remove-ADOrganizationalUnit -Identity $newFinanceOU -Recursive -confirm:$false
+  Write-Host -Foreground-Color Yellow "Finance OU Deleted"
+}
+
 #output if OU exists
 #If OU Finance Exists Delete OU and Output message that OU was deleted
 #Create OU named Finance; output message that OU was created
