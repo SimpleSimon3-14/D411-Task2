@@ -2,10 +2,10 @@
 print 'now starting import.sql'
 USE ClientDB; --this specifies the Database for the import
 
---Import Data from a CSV using the (path) from powershell
-print 'Beginning Bulk Import of data from' + $(PSPATH)
+--Import Data from a CSV using the path from powershell
+print 'Beginning Bulk Import of data from' + $(importPath)
 BULK INSERT Client_A_Contacts
-FROM $(PSPATH)
+FROM $(importPath)
 WITH(
     FIRSTROW = 2, --this ignores the headers in the csv
     FIELDTERMINATOR =',', --data is delimited (separated) with comma
