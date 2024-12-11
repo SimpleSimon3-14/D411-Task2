@@ -24,6 +24,7 @@
 
 #>
 
+try {
 
 # creating and importing records for Database Restore
 $SQLServerName = ".\SQLEXPRESS"
@@ -34,3 +35,7 @@ Invoke-Sqlcmd -ServerInstance $SQLServerName -Database $DBName -InputFile $PSScr
 Invoke-Sqlcmd -ServerInstance $SQLServerName -Database $DBName -InputFile $PSScriptRoot\import.sql -Variable importPath="'$PSScriptRoot\NewClientData.csv'" -Verbose
 
 Invoke-Sqlcmd -Database $DBName -ServerInstance $SQLServerName -Query 'SELECT * FROM dbo.Client_A_Contacts' > $PSScriptRoot\SqlResults.txt
+}
+catch [System.Exception] { 
+    Write-Host -ForegroundColor Red "An error occurred: $_" 
+}
