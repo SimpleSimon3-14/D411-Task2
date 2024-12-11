@@ -1,3 +1,27 @@
+<# 
+
+  .SYNOPSIS 
+  Recreates the Finance Organizational Unit (OU) in Active Directory (AD) and imports finance personnel data from a CSV file. 
+
+  .DESCRIPTION 
+  This script performs the following tasks: 
+    1. Checks if the Finance OU exists in AD. If it exists, it deletes the OU. 
+    2. Creates a new Finance OU in AD. 
+    3. Imports finance personnel data from a CSV file and creates new user accounts in the Finance OU. 
+    4. Generates an output file with details of all users in the Finance OU. 
+
+  .INPUTS 
+    None. The script does not take any pipeline input. 
+  
+  .OUTPUTS 
+    None. The script writes output directly to the console and to files. 
+    
+  .NOTES 
+    Version: 1.0 
+    Author: Patrick Crissey 
+    Student ID: 011252918
+    
+#>
 
 #New OU path to add to AD
 $newFinanceOU = “ou=Finance,dc=consultingfirm,dc=com”

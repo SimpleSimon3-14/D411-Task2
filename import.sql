@@ -1,3 +1,20 @@
+/*
+.SYNOPSIS
+    Imports data into the ClientDB database from a CSV file specified via PowerShell.
+
+.DESCRIPTION
+    This script performs the following tasks:
+    1. Specifies the ClientDB database for the import.
+    2. Prints messages indicating the start of the import process.
+    3. Uses the BULK INSERT command to import data from a CSV file into the Client_A_Contacts table. The path to the CSV file is passed from a PowerShell script.
+
+.INPUTS
+    None. The script does not take any inputs directly. The path to the CSV file is provided via a PowerShell script.
+
+.OUTPUTS
+    Messages indicating the status of the import process.
+*/
+
 -- import.sql
 print 'now starting import.sql'
 USE ClientDB; --this specifies the Database for the import

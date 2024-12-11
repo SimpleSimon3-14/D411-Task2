@@ -1,3 +1,23 @@
+/*
+.SYNOPSIS
+    Creates the Client_A_Contacts table in the database, checking if it already exists and recreating it if necessary.
+
+.DESCRIPTION
+    This script performs the following tasks:
+    1. Checks if the Client_A_Contacts table exists.
+    2. If the table exists, it prints a message, drops the table, and prints another message.
+    3. Creates the Client_A_Contacts table with specified columns.
+    4. Prints a message indicating the table has been created.
+
+.INPUTS
+    None. The script does not take any inputs.
+
+.OUTPUTS
+    Messages indicating the status of the table creation process.
+*/
+
+
+
 --if client contacts data exists in the Database, drop that table from the database and re-create the table 
 DECLARE @Client_A_Contacts VARCHAR(30)
 SET @Client_A_Contacts = 'Client_A_Contacts'
