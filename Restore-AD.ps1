@@ -22,7 +22,7 @@
     Student ID: 011252918
     
 #>
-
+try {
 #New OU path to add to AD
 $newFinanceOU = “ou=Finance,dc=consultingfirm,dc=com”
 
@@ -57,3 +57,7 @@ foreach ($FinanceUser in $FinanceADImport)
 
 #Generate output file: Get-ADUser -Filter * -SearchBase “ou=Finance,dc=consultingfirm,dc=com” -Properties DisplayName,PostalCode,OfficePhone,MobilePhone > .\AdResults.txt
 Get-ADUser -Filter * -SearchBase “ou=Finance,dc=consultingfirm,dc=com” -Properties DisplayName,PostalCode,OfficePhone,MobilePhone > .\AdResults.txt
+}
+catch [System.Exception] {
+   Write-Host -ForegroundColor Red "An error occurred: $_"
+}
